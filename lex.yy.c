@@ -354,8 +354,8 @@ static void yynoreturn yy_fatal_error ( const char* msg  );
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 3
-#define YY_END_OF_BUFFER 4
+#define YY_NUM_RULES 5
+#define YY_END_OF_BUFFER 6
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -363,9 +363,9 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static const flex_int16_t yy_accept[11] =
+static const flex_int16_t yy_accept[9] =
     {   0,
-        0,    0,    4,    2,    2,    1,    0,    1,    0,    0
+        0,    0,    6,    4,    2,    3,    1,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -373,7 +373,7 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1,    1,    1,    1,    2,    3,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    2,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    4,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -400,33 +400,29 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
-static const YY_CHAR yy_meta[4] =
+static const YY_CHAR yy_meta[5] =
     {   0,
-        1,    1,    1
+        1,    1,    1,    1
     } ;
 
-static const flex_int16_t yy_base[12] =
+static const flex_int16_t yy_base[9] =
     {   0,
-        0,    0,   10,    6,    3,   11,    5,   11,    0,   11,
-        6
+        0,    0,    5,    6,    6,    6,    6,    6
     } ;
 
-static const flex_int16_t yy_def[12] =
+static const flex_int16_t yy_def[9] =
     {   0,
-       10,    1,   10,   11,   10,   10,   11,   10,    5,    0,
-       10
+        8,    1,    8,    8,    8,    8,    8,    0
     } ;
 
-static const flex_int16_t yy_nxt[15] =
+static const flex_int16_t yy_nxt[11] =
     {   0,
-        4,    5,    6,    7,    9,    8,    7,    8,    8,   10,
-        3,   10,   10,   10
+        4,    5,    6,    7,    8,    3,    8,    8,    8,    8
     } ;
 
-static const flex_int16_t yy_chk[15] =
+static const flex_int16_t yy_chk[11] =
     {   0,
-        1,    1,    1,    5,    5,    5,   11,    7,    4,    3,
-       10,   10,   10,   10
+        1,    1,    1,    1,    3,    8,    8,    8,    8,    8
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -443,12 +439,11 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "WhitespaceToDecimal.l"
-#line 2 "WhitespaceToDecimal.l"
+#line 1 "WhitespaceToHuman.l"
+#line 2 "WhitespaceToHuman.l"
 #include <stdio.h>
-#line 450 "lex.yy.c"
-#define YY_NO_INPUT 1
-#line 452 "lex.yy.c"
+#line 446 "lex.yy.c"
+#line 447 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -665,11 +660,9 @@ YY_DECL
 		}
 
 	{
-#line 6 "WhitespaceToDecimal.l"
+#line 7 "WhitespaceToHuman.l"
 
-
-
-#line 673 "lex.yy.c"
+#line 666 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -696,13 +689,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 11 )
+				if ( yy_current_state >= 9 )
 					yy_c = yy_meta[yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 11 );
+		while ( yy_base[yy_current_state] != 6 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -727,34 +720,32 @@ do_action:	/* This label is used only to access EOF actions. */
 			goto yy_find_action;
 
 case 1:
-/* rule 1 can match eol */
 YY_RULE_SETUP
-#line 9 "WhitespaceToDecimal.l"
-{
-    int power = 1;
-    int value = 0;
-    int i;
-
-    /* Convertir la valeur en binaire */
-    for (i = 0; i < yyleng - 1; i++) {
-        value = (value << 1) + yytext[i] - '0';
-    }
-
-    /* Afficher la valeur décimale */
-    printf("%d\n", value);
-}
+#line 8 "WhitespaceToHuman.l"
+{ putchar('S'); }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 23 "WhitespaceToDecimal.l"
-{ }
+#line 9 "WhitespaceToHuman.l"
+{ putchar('T'); }
 	YY_BREAK
 case 3:
+/* rule 3 can match eol */
 YY_RULE_SETUP
-#line 25 "WhitespaceToDecimal.l"
+#line 10 "WhitespaceToHuman.l"
+{ putchar('L'); }
+	YY_BREAK
+case 4:
+YY_RULE_SETUP
+#line 11 "WhitespaceToHuman.l"
+{ ; }
+	YY_BREAK
+case 5:
+YY_RULE_SETUP
+#line 13 "WhitespaceToHuman.l"
 ECHO;
 	YY_BREAK
-#line 758 "lex.yy.c"
+#line 749 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1051,7 +1042,7 @@ static int yy_get_next_buffer (void)
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 11 )
+			if ( yy_current_state >= 9 )
 				yy_c = yy_meta[yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
@@ -1079,11 +1070,11 @@ static int yy_get_next_buffer (void)
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 11 )
+		if ( yy_current_state >= 9 )
 			yy_c = yy_meta[yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
-	yy_is_jam = (yy_current_state == 10);
+	yy_is_jam = (yy_current_state == 8);
 
 		return yy_is_jam ? 0 : yy_current_state;
 }
@@ -1759,11 +1750,10 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 25 "WhitespaceToDecimal.l"
+#line 13 "WhitespaceToHuman.l"
 
 
-int main(void)
-{
+int main() {
     yylex();
     return 0;
 }
